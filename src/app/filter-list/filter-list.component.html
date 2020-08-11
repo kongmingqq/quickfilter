@@ -1,12 +1,19 @@
-<p>filter-list works!</p>
+<p class="filter">Welcome!</p>
 <div class="filter input">
-    <input type="text" (keyup)="onKey($event)">
-</div>
-  
-<div class="filter result">
-    <ul>
-      <li *ngFor="let item of result">{{ item }}</li>
-    </ul>
+    <mat-form-field class="example-form-field">
+        <mat-label>Enter keywords to filter</mat-label>
+        <input matInput type="text" [(ngModel)]="filters" (keyup)="onKey($event)">
+        <button mat-button *ngIf="filters" matSuffix mat-icon-button aria-label="Clear" (click)="filters=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <span class="spacer"></span>Total: {{ result.length }}
 </div>
 
-<div>Above is the result for {{ filters }}. Total:{{ result.length }}</div>
+<div class="filter result">
+    <mat-card>
+        <ul>
+            <li *ngFor="let item of result">{{ item }}</li>
+        </ul>
+    </mat-card>
+</div>

@@ -33,12 +33,14 @@ export class FilterListComponent implements OnInit {
         console.error('fetchList failed', error);
         alert('Error: ' + error);
       });
-    this.result = ['Loading'];
+    if (!this.result) {
+      this.result = ['Loading'];
+    }
   }
 
   onKey(event) {
     // console.log("onkey: ", event, event.target.value);
-    this.filters = event.target.value;
+    // this.filters = event.target.value;
     this.onFilterChange();
   }
 
