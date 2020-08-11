@@ -1,0 +1,12 @@
+<p>filter-list works!</p>
+<div class="filter input">
+    <input type="text" (keyup)="onKey($event)">
+</div>
+  
+<div class="filter result">
+    <ul>
+      <li *ngFor="let item of result">{{ item }}</li>
+    </ul>
+</div>
+
+<div>Above is the result for {{ filters }}. Total:{{ result.length }}</div>
